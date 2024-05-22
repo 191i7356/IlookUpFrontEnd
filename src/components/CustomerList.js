@@ -3,18 +3,17 @@ import { Button, Modal, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import AppContext from "./AppContext";
 
-const CustomerList = ({editCustomer , deleteCustomer, customerToEdit}) => {
-    const { customers, setCustomers , fetchCustomers} = useContext(AppContext);
+const CustomerList = ({ deleteCustomer, customerToEdit}) => {
+    // eslint-disable-next-line no-unused-vars
+    const { customers, fetchCustomers} = useContext(AppContext);
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [customerDelete, setCustomerDelete] = useState(null);
-    const loadCustomers = () => {
-        console.log("Loading customers")
-        fetchCustomers(); // Fetch customers when explicitly called
-    };
+
 
     useEffect(() => {
-        loadCustomers(); // Fetch customers when the component mounts
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        fetchCustomers();  // Fetch customers when the component mounts
     }, []); // Empty dependency array means it runs only once when component mounts
     const navigate = useNavigate();
     const handleEditClick = (customer) => {

@@ -7,6 +7,7 @@ const PageLayout = () => {
     const [itemState, setItemState] = useState('DashBoard');
     const handleItemClick = (item) => {
         console.log(item);
+        console.log(itemState);
         setItemState(item);
     };
 

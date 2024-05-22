@@ -6,13 +6,13 @@ import AppContext from "./AppContext";
 import axios from 'axios';
 
 const Customers = () => {
-    const { customers, setCustomers , fetchCustomers} = useContext(AppContext);
+    const {  setCustomers , fetchCustomers} = useContext(AppContext);
     const [customerToEdit, setCustomerToEdit] = useState(null);
     const navigate = useNavigate();
 
     const addCustomer = async (newCustomer) => {
         try {
-            const response = await axios.post('https://ilookup-latest.onrender.com/api/customers', newCustomer);
+            await axios.post('https://ilookup-latest.onrender.com/api/customers', newCustomer);
         } catch (error) {
             console.error('Error adding Customer:', error);
         }
@@ -23,7 +23,7 @@ const Customers = () => {
     const editCustomer =async  (updatedCustomer) => {
         console.log("Editinf customer")
         try {
-            const response = await axios.put(`https://ilookup-latest.onrender.com/api/customers/${updatedCustomer.id}`, updatedCustomer);
+             await axios.put(`https://ilookup-latest.onrender.com/api/customers/${updatedCustomer.id}`, updatedCustomer);
         } catch (error) {
             console.error('Error Updatig Customer:', error);
         }   
@@ -33,7 +33,7 @@ const Customers = () => {
 
     const deleteCustomer = async (customerId) => {
         try {
-            const response = await axios.delete(`https://ilookup-latest.onrender.com/api/customers/${customerId}`);
+             await axios.delete(`https://ilookup-latest.onrender.com/api/customers/${customerId}`);
          } catch (error) {
             console.error('Error Dleeting Customer:', error);
         }   
@@ -52,7 +52,6 @@ const Customers = () => {
                 path="/"
                 element={
                     <CustomerList
-                        editCustomer={editCustomer}
                         deleteCustomer={deleteCustomer}
                         customerToEdit={setCustomerToEdit}
                         onAddButtonClick={handleAddButtonClick}
