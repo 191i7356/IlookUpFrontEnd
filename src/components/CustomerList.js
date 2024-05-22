@@ -5,16 +5,16 @@ import AppContext from "./AppContext";
 
 const CustomerList = ({ deleteCustomer, customerToEdit}) => {
     // eslint-disable-next-line no-unused-vars
-    const { customers, fetchCustomers} = useContext(AppContext);
+    const { customers} = useContext(AppContext);
 
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [customerDelete, setCustomerDelete] = useState(null);
 
 
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        fetchCustomers();  // Fetch customers when the component mounts
-    }, []); // Empty dependency array means it runs only once when component mounts
+    // useEffect(() => {
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    //     fetchCustomers();  // Fetch customers when the component mounts
+    // }, []); // Empty dependency array means it runs only once when component mounts
     const navigate = useNavigate();
     const handleEditClick = (customer) => {
         console.log("Edit button clicked")
