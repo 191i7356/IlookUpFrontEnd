@@ -21,6 +21,7 @@ module.exports = {
   },
   ignoreWarnings: [
     {
+        // eslint-disable-next-line
       module: /@react-aria\/ssr/, // Suppress warnings from this module
     },
   ],
